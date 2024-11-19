@@ -1,4 +1,5 @@
 import { DictionaryManager } from '@anonide/ui-components';
+import '@anonide/ui-components/style.css'; // Updated CSS import path
 import type { Component } from 'solid-js';
 import styles from './App.module.css';
 

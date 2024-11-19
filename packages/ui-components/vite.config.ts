@@ -12,5 +12,14 @@ export default defineConfig({
     rollupOptions: {
       external: ["solid-js"],
     },
+    cssCodeSplit: true,
+    // Ensure CSS is processed and included
+    cssMinify: true,
+  },
+  css: {
+    modules: {
+      // Ensure consistent naming for CSS modules
+      generateScopedName: "[name]__[local]___[hash:base64:5]",
+    },
   },
 });
