@@ -1,0 +1,13 @@
+{
+  "name": "anonide",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Text anonymization Chrome extension",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

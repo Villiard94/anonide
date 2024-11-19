@@ -1,38 +1,45 @@
 # **Anonide Software License Agreement**  
+
 **Version 1.0**  
 
 This Software License Agreement (the “Agreement”) is a legal agreement between the copyright owner(s) (“Licensor”) and any individual or entity accessing, downloading, or using the software known as "Anonide" (the “Software”). By accessing, downloading, or using the Software, you agree to be bound by the terms of this Agreement. If you do not agree, do not use or access the Software.
 
 ---
 
-### **1. Grant of License**  
+## **1. Grant of License**  
+
 1.1 **License Grant**:  
 The Licensor hereby grants you a limited, non-exclusive, royalty-free, worldwide, revocable license to use, copy, modify, and distribute the source code of the Software solely for the purposes permitted under this Agreement.  
 
 1.2 **Permitted Uses**:  
 You may:  
-  - Use the Software for personal, educational, research, or commercial purposes.  
-  - Modify the Software or create derivative works for internal use or as part of a larger product.  
+
+- Use the Software for personal, educational, research, or commercial purposes.  
+- Modify the Software or create derivative works for internal use or as part of a larger product.  
 
 1.3 **Prohibited Uses**:  
 You shall not:  
-  - Redistribute, resell, sublicense, lease, or otherwise distribute copies of the Software, modified or unmodified, in any form or by any means, for any purpose not expressly permitted herein.  
-  - Incorporate the Software into a commercial product or service intended solely to resell or redistribute the Software or its substantial functionality.  
+
+- Redistribute, resell, sublicense, lease, or otherwise distribute copies of the Software, modified or unmodified, in any form or by any means, for any purpose not expressly permitted herein.  
+- Incorporate the Software into a commercial product or service intended solely to resell or redistribute the Software or its substantial functionality.  
 
 ---
 
-### **2. Open Source and Attribution**  
+## **2. Open Source and Attribution**  
+
 2.1 **Source Code Availability**:  
 The Licensor makes the source code of the Software available under the terms of this Agreement to encourage collaboration, education, and innovation.  
 
 2.2 **Attribution Requirement**:  
 When redistributing modified source code for personal or organizational purposes (non-commercial redistribution only), you must include:  
-  - Clear attribution to the original Licensor in all copies.  
-  - A link to the official repository or website of the Software.  
+
+- Clear attribution to the original Licensor in all copies.  
+- A link to the official repository or website of the Software.  
 
 ---
 
-### **3. Intellectual Property Rights**  
+## **3. Intellectual Property Rights**  
+
 3.1 **Ownership**:  
 The Licensor retains all ownership, title, and intellectual property rights in and to the Software, including any modifications, adaptations, or derivative works created by you or third parties, subject to the terms of this Agreement.  
 
@@ -41,7 +48,8 @@ This Agreement does not grant any right, license, or interest in the Licensor’
 
 ---
 
-### **4. Disclaimer of Warranties**  
+## **4. Disclaimer of Warranties**  
+
 4.1 **"As-Is" Provision**:  
 THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT.  
 
@@ -50,7 +58,8 @@ THE LICENSOR DOES NOT GUARANTEE THAT THE SOFTWARE WILL MEET YOUR REQUIREMENTS, B
 
 ---
 
-### **5. Limitation of Liability**  
+## **5. Limitation of Liability**  
+
 5.1 **No Liability for Damages**:  
 TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE LICENSOR SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF DATA, PROFITS, OR BUSINESS OPPORTUNITIES, ARISING OUT OF OR RELATING TO YOUR USE OF THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  
 
@@ -59,7 +68,8 @@ IN NO EVENT SHALL THE LICENSOR'S TOTAL LIABILITY EXCEED THE AMOUNT PAID BY YOU F
 
 ---
 
-### **6. Termination of License**  
+## **6. Termination of License**  
+
 6.1 **Automatic Termination**:  
 This Agreement and the rights granted herein will terminate immediately if you breach any term or condition of this Agreement.  
 
@@ -68,13 +78,15 @@ Upon termination, you must immediately cease all use of the Software, delete all
 
 ---
 
-### **7. Governing Law and Jurisdiction**  
+## **7. Governing Law and Jurisdiction**  
+
 7.1 **Jurisdiction**:  
-This Agreement shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes arising under this Agreement shall be resolved exclusively in the courts of [Your Jurisdiction].  
+This Agreement shall be governed by and construed in accordance with the laws of Canada. Any disputes arising under this Agreement shall be resolved exclusively in the courts of Canada.  
 
 ---
 
-### **8. Miscellaneous**  
+## **8. Miscellaneous**  
+
 8.1 **Severability**:  
 If any provision of this Agreement is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.  
 
