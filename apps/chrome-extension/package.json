@@ -10,6 +10,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@anonide/ui-components": "workspace:*",
     "solid-js": "catalog:"
   },
   "devDependencies": {

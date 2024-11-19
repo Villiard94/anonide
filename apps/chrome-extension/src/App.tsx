@@ -1,6 +1,6 @@
+import { DictionaryManager } from '@anonide/ui-components';
 import type { Component } from 'solid-js';
 import styles from './App.module.css';
-import { DictionaryManager } from './components/dictionary';
 
 const App: Component = () => {
   return (
