@@ -12,7 +12,8 @@
   flex: 1;
 }
 
-.itemKey, .itemToken {
+.itemKey,
+.itemToken {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -38,7 +39,7 @@
 }
 
 .badge {
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
   padding: 0.25rem 0.5rem;
   border-radius: 12px;

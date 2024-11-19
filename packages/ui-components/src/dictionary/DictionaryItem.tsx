@@ -26,10 +26,7 @@ const DictionaryItem: Component<DictionaryItemProps> = (props) => {
           <span class={styles.value}>{props.item.token}</span>
         </div>
       </div>
-      <button 
-        onClick={props.onDelete} 
-        class={styles.deleteButton}
-      >
+      <button onClick={props.onDelete} class={styles.deleteButton}>
         Delete
       </button>
     </div>

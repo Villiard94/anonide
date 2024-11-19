@@ -4,7 +4,7 @@ import type {
   AnonymizerOptions,
   DictionaryConfig,
   KeywordConfig,
-  StorageService
+  StorageService,
 } from './types';
 
 const CONFIG_STORAGE_KEY = 'anonymizer:config';
@@ -17,7 +17,7 @@ export class Anonymizer {
     this.config = options.defaultConfig || {
       type: 'dictionary',
       rules: {},
-      caseSensitive: false
+      caseSensitive: false,
     };
     this.storage = options.storage;
     this.loadConfig();
@@ -25,7 +25,7 @@ export class Anonymizer {
 
   private async loadConfig(): Promise<void> {
     if (!this.storage) return;
-    
+
     const savedConfig = await this.storage.load<AnonymizationConfig>(CONFIG_STORAGE_KEY);
     if (savedConfig) {
       this.config = savedConfig;
@@ -54,7 +54,7 @@ export class Anonymizer {
 
   private anonymizeWithKeywords(text: string, config: KeywordConfig): string {
     let result = text;
-    
+
     config.rules.forEach(({ pattern, replacement }) => {
       const regex = typeof pattern === 'string' ? new RegExp(pattern, 'g') : pattern;
       result = result.replace(regex, replacement);

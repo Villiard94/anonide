@@ -11,7 +11,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
     key: '',
     token: '',
     isRegex: false,
-    caseSensitive: false
+    caseSensitive: false,
   });
 
   const handleSubmit = (e: Event) => {
@@ -22,7 +22,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
         key: '',
         token: '',
         isRegex: false,
-        caseSensitive: false
+        caseSensitive: false,
       });
     }
   };
@@ -30,9 +30,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
   return (
     <form onSubmit={handleSubmit} class={styles.form}>
       <div class={styles.formGroup}>
-        <label class={styles.label}>
-          Search for:
-        </label>
+        <label class={styles.label}>Search for:</label>
         <input
           type="text"
           value={newItem().key}
@@ -43,9 +41,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
       </div>
 
       <div class={styles.formGroup}>
-        <label class={styles.label}>
-          Replace with:
-        </label>
+        <label class={styles.label}>Replace with:</label>
         <input
           type="text"
           value={newItem().token}
@@ -71,7 +67,12 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
           <input
             type="checkbox"
             checked={newItem().caseSensitive}
-            onChange={(e) => setNewItem({ ...newItem(), caseSensitive: e.currentTarget.checked })}
+            onChange={(e) =>
+              setNewItem({
+                ...newItem(),
+                caseSensitive: e.currentTarget.checked,
+              })
+            }
           />
           Case Sensitive
         </label>

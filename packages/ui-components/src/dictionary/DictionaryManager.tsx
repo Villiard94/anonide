@@ -9,11 +9,13 @@ const DictionaryManager: Component = () => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
   const [searchTerm, setSearchTerm] = createSignal('');
   const [showForm, setShowForm] = createSignal(false);
-  
-  const filteredItems = () => items().filter(item => 
-    item.key.toLowerCase().includes(searchTerm().toLowerCase()) ||
-    item.token.toLowerCase().includes(searchTerm().toLowerCase())
-  );
+
+  const filteredItems = () =>
+    items().filter(
+      (item) =>
+        item.key.toLowerCase().includes(searchTerm().toLowerCase()) ||
+        item.token.toLowerCase().includes(searchTerm().toLowerCase())
+    );
 
   const handleAddItem = (newItem: DictionaryItem) => {
     setItems([...items(), newItem]);
@@ -38,11 +40,8 @@ const DictionaryManager: Component = () => {
       <Show when={showForm()}>
         <DictionaryForm onSubmit={handleAddItem} />
       </Show>
-      
-      <DictionaryList
-        items={filteredItems()}
-        onDeleteItem={handleDeleteItem}
-      />
+
+      <DictionaryList items={filteredItems()} onDeleteItem={handleDeleteItem} />
     </div>
   );
 };

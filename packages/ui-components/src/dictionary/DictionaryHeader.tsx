@@ -18,10 +18,7 @@ const DictionaryHeader: Component<DictionaryHeaderProps> = (props) => {
         onInput={(e) => props.onSearchChange(e.currentTarget.value)}
         class={styles.searchInput}
       />
-      <button 
-        onClick={props.onToggleForm} 
-        class={styles.addButton}
-      >
+      <button onClick={props.onToggleForm} class={styles.addButton}>
         {props.showForm ? 'Cancel' : 'Add Item'}
       </button>
     </div>

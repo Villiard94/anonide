@@ -17,10 +17,7 @@ const DictionaryList: Component<DictionaryListProps> = (props) => {
       >
         <For each={props.items}>
           {(item, index) => (
-            <DictionaryItem
-              item={item}
-              onDelete={() => props.onDeleteItem(index())}
-            />
+            <DictionaryItem item={item} onDelete={() => props.onDeleteItem(index())} />
           )}
         </For>
       </Show>

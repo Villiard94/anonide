@@ -19,7 +19,7 @@ export class LocalStorageService implements StorageService {
   async load<T>(key: string): Promise<T | null> {
     const serialized = localStorage.getItem(this.getKey(key));
     if (!serialized) return null;
-    
+
     try {
       return JSON.parse(serialized) as T;
     } catch {
