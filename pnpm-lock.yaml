@@ -9,6 +9,9 @@ catalogs:
     '@crxjs/vite-plugin':
       specifier: 2.0.0-beta.28
       version: 2.0.0-beta.28
+    '@suid/vite-plugin':
+      specifier: ^0.3.1
+      version: 0.3.1
     nanoid:
       specifier: ^5.0.8
       version: 5.0.8
@@ -41,6 +44,9 @@ importers:
       '@crxjs/vite-plugin':
         specifier: 'catalog:'
         version: 2.0.0-beta.28
+      '@suid/vite-plugin':
+        specifier: 'catalog:'
+        version: 0.3.1(vite@5.4.11(@types/node@18.19.64))
       solid-devtools:
         specifier: 'catalog:'
         version: 0.30.1(solid-js@1.9.3)(vite@5.4.11(@types/node@18.19.64))
@@ -505,6 +511,11 @@ packages:
     resolution: {integrity: sha512-CqAwKb2T5Vi72+rhebSsqNZ9o67buYRdEJrIFzRXz3U59QqezuuxPsyzTSVCacwS5Pf109VRsgCJQoxKRoECZQ==}
     peerDependencies:
       solid-js: ^1.6.12
+
+  '@suid/vite-plugin@0.3.1':
+    resolution: {integrity: sha512-IXbYxRZr4ie4iCYlqBM2znLV/RKrIT2zpaYYI5k1DbJHXVW5nXniCoii7BlvM2SonOKlsQ6R8CNI2X3bjAmoVQ==}
+    peerDependencies:
+      vite: ^5.0.0
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -1337,6 +1348,18 @@ snapshots:
   '@solid-primitives/utils@6.2.3(solid-js@1.9.3)':
     dependencies:
       solid-js: 1.9.3
+
+  '@suid/vite-plugin@0.3.1(vite@5.4.11(@types/node@18.19.64))':
+    dependencies:
+      '@babel/generator': 7.26.2
+      '@babel/parser': 7.26.2
+      '@babel/traverse': 7.25.9
+      '@babel/types': 7.26.0
+      '@types/babel__generator': 7.6.8
+      '@types/babel__traverse': 7.20.6
+      vite: 5.4.11(@types/node@18.19.64)
+    transitivePeerDependencies:
+      - supports-color
 
   '@types/babel__core@7.20.5':
     dependencies:
