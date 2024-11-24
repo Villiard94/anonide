@@ -6,15 +6,21 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      formats: ['es'],
       fileName: 'index',
     },
     rollupOptions: {
       external: ['solid-js'],
+      output: {
+        preserveModules: true,
+      },
     },
     cssCodeSplit: true,
     // Ensure CSS is processed and included
     cssMinify: true,
+    watch: {
+      // Enable proper HMR watching
+      buildDelay: 100,
+    },
   },
   css: {
     modules: {

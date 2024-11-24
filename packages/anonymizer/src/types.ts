@@ -17,7 +17,7 @@ export type KeywordConfig = {
 export type AnonymizationConfig = DictionaryConfig | KeywordConfig;
 
 export interface StorageService {
-  save(key: string, value: any): Promise<void>;
+  save<T>(key: string, value: T): Promise<void>;
   load<T>(key: string): Promise<T | null>;
 }
 

@@ -6,12 +6,26 @@
   "scripts": {
     "build": "pnpm -r build",
     "dev": "pnpm -r dev",
-    "format": "prettier --editorconfig -w packages/**/* apps/**/*"
+    "format": "prettier --editorconfig -w packages/**/* apps/**/*",
+    "lint": "eslint",
+    "crx:dev": "pnpm --filter chrome-extension dev",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prettier": "^3.3.3"
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-solid": "^0.14.4",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.15.0"
   }
 }

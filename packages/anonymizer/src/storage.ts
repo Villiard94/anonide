@@ -11,7 +11,7 @@ export class LocalStorageService implements StorageService {
     return `${this.prefix}${key}`;
   }
 
-  async save(key: string, value: any): Promise<void> {
+  async save<T>(key: string, value: T): Promise<void> {
     const serialized = JSON.stringify(value);
     localStorage.setItem(this.getKey(key), serialized);
   }
