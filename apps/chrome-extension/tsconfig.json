@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@anonide/ui-components": ["../../packages/ui-components/src"]
+    }
   },
   "include": ["src"]
 }

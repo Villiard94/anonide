@@ -2,22 +2,17 @@
   "name": "@anonide/ui-components",
   "version": "1.0.0",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "style": "./dist/index.css",
+  "main": "./dist/ui-components.umd.js",
+  "module": "./dist/ui-components.es.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js",
-      "style": "./dist/index.css"
-    },
-    "./style.css": "./dist/index.css"
+      "import": "./dist/ui-components.es.js",
+      "require": "./dist/ui-components.umd.js"
+    }
   },
   "scripts": {
-    "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
     "@anonide/anonymizer": "workspace:*",

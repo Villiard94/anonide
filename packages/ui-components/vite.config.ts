@@ -6,11 +6,16 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "ui-components",
-      fileName: "index",
+      name: "UIComponents",
+      fileName: (format) => `ui-components.${format}.js`,
     },
     rollupOptions: {
       external: ["solid-js"],
+      output: {
+        globals: {
+          "solid-js": "solid",
+        },
+      },
     },
   },
 });
