@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
+import suidPlugin from "@suid/vite-plugin";
 
 export default defineConfig({
-  plugins: [solidPlugin()],
+  plugins: [suidPlugin(), solidPlugin()],
   build: {
     lib: {
       entry: "src/index.ts",
@@ -10,10 +11,12 @@ export default defineConfig({
       fileName: (format) => `ui-components.${format}.js`,
     },
     rollupOptions: {
-      external: ["solid-js"],
+      external: ["solid-js", "@suid/material", "@suid/icons-material"],
       output: {
         globals: {
           "solid-js": "solid",
+          "@suid/material": "suidMaterial",
+          "@suid/icons-material": "suidIconsMaterial",
         },
       },
     },

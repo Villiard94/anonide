@@ -1,6 +1,7 @@
 import type { Component } from "solid-js";
 import { onMount } from "solid-js";
 import { DictionaryManager } from "@anonide/ui-components";
+import { Typography } from "@suid/material";
 
 const App: Component = () => {
   onMount(() => {
@@ -12,7 +13,7 @@ const App: Component = () => {
   return (
     <div>
       <header>
-        <h1>Anonide</h1>
+        <Typography variant="h1"> Anonide</Typography>
       </header>
       <DictionaryManager />
     </div>

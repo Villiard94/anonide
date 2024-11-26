@@ -1,4 +1,5 @@
 import { Component, For, Show } from "solid-js";
+import { List, Typography, Box } from "@suid/material";
 import DictionaryItem from "./DictionaryItem";
 import { DictionaryItem as DictionaryItemType } from "./types";
 
@@ -9,15 +10,24 @@ interface DictionaryListProps {
 
 const DictionaryList: Component<DictionaryListProps> = (props) => {
   return (
-    <div>
-      <Show when={props.items.length > 0} fallback={<div>No dictionary items found</div>}>
-        <For each={props.items}>
-          {(item, index) => (
-            <DictionaryItem item={item} onDelete={() => props.onDeleteItem(index())} />
-          )}
-        </For>
+    <Box sx={{ mt: 2 }}>
+      <Show
+        when={props.items.length > 0}
+        fallback={
+          <Typography variant="body1" color="text.secondary" sx={{ textAlign: "center", py: 4 }}>
+            No dictionary items found
+          </Typography>
+        }
+      >
+        <List sx={{ p: 0 }}>
+          <For each={props.items}>
+            {(item, index) => (
+              <DictionaryItem item={item} onDelete={() => props.onDeleteItem(index())} />
+            )}
+          </For>
+        </List>
       </Show>
-    </div>
+    </Box>
   );
 };
 

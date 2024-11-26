@@ -1,5 +1,6 @@
 import { LocalStorageService } from "@anonide/anonymizer";
 import { Component, Show, createEffect, createSignal, onMount } from "solid-js";
+import { Container, Typography } from "@suid/material";
 import { DictionaryItem } from "./types";
 import DictionaryForm from "./DictionaryForm";
 import DictionaryHeader from "./DictionaryHeader";
@@ -40,14 +41,18 @@ const DictionaryManager: Component = () => {
   };
 
   const handleDeleteItem = (index: number) => {
-    console.log("deleteing item");
+    console.log("deleting item");
     const newItems = [...items()];
     newItems.splice(index, 1);
     setItems(newItems);
   };
 
   return (
-    <div>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Typography variant="h4" component="h1" sx={{ mb: 4 }}>
+        Dictionary Manager
+      </Typography>
+
       <DictionaryHeader
         searchTerm={searchTerm()}
         showForm={showForm()}
@@ -60,7 +65,7 @@ const DictionaryManager: Component = () => {
       </Show>
 
       <DictionaryList items={filteredItems()} onDeleteItem={handleDeleteItem} />
-    </div>
+    </Container>
   );
 };
 

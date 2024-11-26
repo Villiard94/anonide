@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@anonide/ui-components": "workspace:*",
+    "@suid/icons-material": "catalog:",
+    "@suid/material": "catalog:",
     "solid-js": "catalog:"
   },
   "devDependencies": {
