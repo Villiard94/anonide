@@ -1,9 +1,9 @@
-import { StorageService } from './types';
+import { StorageService } from "./types";
 
 export class LocalStorageService implements StorageService {
   private prefix: string;
 
-  constructor(prefix: string = 'anonide:') {
+  constructor(prefix: string = "anonide:") {
     this.prefix = prefix;
   }
 

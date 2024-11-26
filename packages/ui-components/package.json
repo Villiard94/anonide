@@ -16,7 +16,7 @@
     "./style.css": "./dist/index.css"
   },
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly",
+    "build": "vite build",
     "dev": "vite build --watch"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "catalog:",
     "@suid/vite-plugin": "catalog:",
+    "sass-embedded": "catalog:",
     "solid-devtools": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

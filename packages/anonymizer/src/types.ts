@@ -4,13 +4,13 @@ export type AnonymizationRule = {
 };
 
 export type DictionaryConfig = {
-  type: 'dictionary';
+  type: "dictionary";
   rules: Record<string, string>;
   caseSensitive?: boolean;
 };
 
 export type KeywordConfig = {
-  type: 'keyword';
+  type: "keyword";
   rules: AnonymizationRule[];
 };
 

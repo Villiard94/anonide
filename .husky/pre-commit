@@ -1,2 +1,2 @@
-pnpm lint $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
+pnpm lint
 git update-index --again

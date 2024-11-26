@@ -1,22 +1,20 @@
-import { LocalStorageService } from '@anonide/anonymizer';
-import { Component, Show, createEffect, createSignal, onMount } from 'solid-js';
-import { DictionaryItem } from './types';
-import DictionaryForm from './DictionaryForm';
-import DictionaryHeader from './DictionaryHeader';
-import DictionaryList from './DictionaryList';
+import { LocalStorageService } from "@anonide/anonymizer";
+import { Component, Show, createEffect, createSignal, onMount } from "solid-js";
+import { DictionaryItem } from "./types";
+import DictionaryForm from "./DictionaryForm";
+import DictionaryHeader from "./DictionaryHeader";
+import DictionaryList from "./DictionaryList";
 
-import styles from './DictionaryManager.module.scss';
-
-const storage = new LocalStorageService('dictionary:');
-const STORAGE_KEY = 'items';
+const storage = new LocalStorageService("dictionary:");
+const STORAGE_KEY = "items";
 
 const DictionaryManager: Component = () => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
-  const [searchTerm, setSearchTerm] = createSignal('');
+  const [searchTerm, setSearchTerm] = createSignal("");
   const [showForm, setShowForm] = createSignal(false);
 
   onMount(async () => {
-    console.log('on mount');
+    console.log("on mount");
     const savedItems = await storage.load<DictionaryItem[]>(STORAGE_KEY);
     if (savedItems) {
       setItems(savedItems);
@@ -24,7 +22,7 @@ const DictionaryManager: Component = () => {
   });
 
   createEffect(() => {
-    console.log('saving item');
+    console.log("saving item");
     storage.save(STORAGE_KEY, items());
   });
 
@@ -36,20 +34,20 @@ const DictionaryManager: Component = () => {
     );
 
   const handleAddItem = (newItem: DictionaryItem) => {
-    console.log('adding item');
+    console.log("adding item");
     setItems([...items(), newItem]);
     setShowForm(false);
   };
 
   const handleDeleteItem = (index: number) => {
-    console.log('deleteing item');
+    console.log("deleteing item");
     const newItems = [...items()];
     newItems.splice(index, 1);
     setItems(newItems);
   };
 
   return (
-    <div class={styles.container}>
+    <div>
       <DictionaryHeader
         searchTerm={searchTerm()}
         showForm={showForm()}

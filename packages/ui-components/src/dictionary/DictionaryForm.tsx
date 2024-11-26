@@ -1,6 +1,5 @@
-import { Component, createSignal } from 'solid-js';
-import styles from './DictionaryForm.module.css';
-import { DictionaryItem } from './types';
+import { Component, createSignal } from "solid-js";
+import { DictionaryItem } from "./types";
 
 interface DictionaryFormProps {
   onSubmit: (item: DictionaryItem) => void;
@@ -8,8 +7,8 @@ interface DictionaryFormProps {
 
 const DictionaryForm: Component<DictionaryFormProps> = (props) => {
   const [newItem, setNewItem] = createSignal<DictionaryItem>({
-    key: '',
-    token: '',
+    key: "",
+    token: "",
     isRegex: false,
     caseSensitive: false,
   });
@@ -19,8 +18,8 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
     if (newItem().key && newItem().token) {
       props.onSubmit(newItem());
       setNewItem({
-        key: '',
-        token: '',
+        key: "",
+        token: "",
         isRegex: false,
         caseSensitive: false,
       });
@@ -28,31 +27,29 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} class={styles.form}>
-      <div class={styles.formGroup}>
-        <label class={styles.label}>Search for:</label>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Search for:</label>
         <input
           type="text"
           value={newItem().key}
           onInput={(e) => setNewItem({ ...newItem(), key: e.currentTarget.value })}
           required
-          class={styles.input}
         />
       </div>
 
-      <div class={styles.formGroup}>
-        <label class={styles.label}>Replace with:</label>
+      <div>
+        <label>Replace with:</label>
         <input
           type="text"
           value={newItem().token}
           onInput={(e) => setNewItem({ ...newItem(), token: e.currentTarget.value })}
           required
-          class={styles.input}
         />
       </div>
 
-      <div class={styles.formGroup}>
-        <label class={styles.checkboxLabel}>
+      <div>
+        <label>
           <input
             type="checkbox"
             checked={newItem().isRegex}
@@ -62,8 +59,8 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
         </label>
       </div>
 
-      <div class={styles.formGroup}>
-        <label class={styles.checkboxLabel}>
+      <div>
+        <label>
           <input
             type="checkbox"
             checked={newItem().caseSensitive}
@@ -78,9 +75,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
         </label>
       </div>
 
-      <button type="submit" class={styles.submitButton}>
-        Add Dictionary Item
-      </button>
+      <button type="submit">Add Dictionary Item</button>
     </form>
   );
 };

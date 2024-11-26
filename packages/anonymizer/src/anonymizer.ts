@@ -1,13 +1,13 @@
-import { nanoid } from 'nanoid';
+import { nanoid } from "nanoid";
 import type {
   AnonymizationConfig,
   AnonymizerOptions,
   DictionaryConfig,
   KeywordConfig,
   StorageService,
-} from './types';
+} from "./types";
 
-const CONFIG_STORAGE_KEY = 'anonymizer:config';
+const CONFIG_STORAGE_KEY = "anonymizer:config";
 
 export class Anonymizer {
   private config: AnonymizationConfig;
@@ -15,7 +15,7 @@ export class Anonymizer {
 
   constructor(options: AnonymizerOptions = {}) {
     this.config = options.defaultConfig || {
-      type: 'dictionary',
+      type: "dictionary",
       rules: {},
       caseSensitive: false,
     };
@@ -44,7 +44,7 @@ export class Anonymizer {
     const { rules, caseSensitive = false } = config;
 
     Object.entries(rules).forEach(([word, replacement]) => {
-      const flags = caseSensitive ? 'g' : 'gi';
+      const flags = caseSensitive ? "g" : "gi";
       const regex = new RegExp(word, flags);
       result = result.replace(regex, replacement);
     });
@@ -56,7 +56,7 @@ export class Anonymizer {
     let result = text;
 
     config.rules.forEach(({ pattern, replacement }) => {
-      const regex = typeof pattern === 'string' ? new RegExp(pattern, 'g') : pattern;
+      const regex = typeof pattern === "string" ? new RegExp(pattern, "g") : pattern;
       result = result.replace(regex, replacement);
     });
 
@@ -64,7 +64,7 @@ export class Anonymizer {
   }
 
   anonymize(text: string): string {
-    if (this.config.type === 'dictionary') {
+    if (this.config.type === "dictionary") {
       return this.anonymizeWithDictionary(text, this.config);
     } else {
       return this.anonymizeWithKeywords(text, this.config);

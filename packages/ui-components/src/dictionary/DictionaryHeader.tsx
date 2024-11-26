@@ -1,5 +1,4 @@
-import { Component } from 'solid-js';
-import styles from './DictionaryHeader.module.css';
+import { Component } from "solid-js";
 
 interface DictionaryHeaderProps {
   searchTerm: string;
@@ -10,17 +9,14 @@ interface DictionaryHeaderProps {
 
 const DictionaryHeader: Component<DictionaryHeaderProps> = (props) => {
   return (
-    <div class={styles.header}>
+    <div>
       <input
         type="text"
         placeholder="Search dictionary..."
         value={props.searchTerm}
         onInput={(e) => props.onSearchChange(e.currentTarget.value)}
-        class={styles.searchInput}
       />
-      <button onClick={() => props.onToggleForm()} class={styles.addButton}>
-        {props.showForm ? 'Cancel' : 'Add Item'}
-      </button>
+      <button onClick={() => props.onToggleForm()}>{props.showForm ? "Cancel" : "Add Item"}</button>
     </div>
   );
 };

@@ -1,2 +1,2 @@
-export { default as DictionaryManager } from './DictionaryManager';
-export * from './types';
+export { default as DictionaryManager } from "./DictionaryManager";
+export * from "./types";
