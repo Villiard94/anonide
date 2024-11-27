@@ -3,7 +3,7 @@ import devtools from "solid-devtools/vite";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 import path from "path";
-import manifest from "./manifest.json";
+import manifest from "./manifest.json" assert { type: "json" };
 
 export default defineConfig({
   plugins: [devtools(), solidPlugin(), crx({ manifest })],
@@ -15,7 +15,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        index: "index.html",
+        index: path.resolve(__dirname, "index.html"),
       },
       output: {
         entryFileNames: "assets/[name].js",

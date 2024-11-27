@@ -25,3 +25,10 @@ export interface AnonymizerOptions {
   storage?: StorageService;
   defaultConfig?: AnonymizationConfig;
 }
+
+export interface DictionaryItem {
+  key: string;
+  token: string;
+  isRegex: boolean;
+  caseSensitive: boolean;
+}

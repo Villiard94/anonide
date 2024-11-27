@@ -1,7 +1,6 @@
-import { LocalStorageService } from "@anonide/anonymizer";
+import { LocalStorageService, DictionaryItem } from "@anonide/anonymizer";
 import { Component, Show, createEffect, createSignal, onMount } from "solid-js";
 import { Container, Typography } from "@suid/material";
-import { DictionaryItem } from "./types";
 import DictionaryForm from "./DictionaryForm";
 import DictionaryHeader from "./DictionaryHeader";
 import DictionaryList from "./DictionaryList";

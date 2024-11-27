@@ -10,6 +10,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@anonide/anonymizer": "workspace:*",
     "@anonide/ui-components": "workspace:*",
     "@suid/icons-material": "catalog:",
     "@suid/material": "catalog:",
