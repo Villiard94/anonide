@@ -1,6 +1,6 @@
 import { DictionaryItem, getStoredDictionary, saveDictionary } from "@anonide/anonymizer";
 import { Component, Show, createEffect, createSignal, onMount } from "solid-js";
-import { Container, Typography } from "@suid/material";
+import { Container } from "@suid/material";
 import DictionaryForm from "./DictionaryForm";
 import DictionaryHeader from "./DictionaryHeader";
 import DictionaryList from "./DictionaryList";
@@ -45,10 +45,6 @@ const DictionaryManager: Component = () => {
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Typography variant="h4" component="h1" sx={{ mb: 4 }}>
-        Dictionary Manager
-      </Typography>
-
       <DictionaryHeader
         searchTerm={searchTerm()}
         showForm={showForm()}

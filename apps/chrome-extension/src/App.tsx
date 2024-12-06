@@ -1,10 +1,10 @@
 import type { Component } from "solid-js";
 import { onMount } from "solid-js";
 import { DictionaryManager } from "@anonide/ui-components";
-import { Typography } from "@suid/material";
 import { AnonymizerHandler } from "@anonide/anonymizer-handler";
 import { MainExtensionEventBus } from "@anonide/extension-event-bus";
 import { Anonymizer } from "@anonide/anonymizer";
+import { Header } from "./components/Header";
 
 const anonymizer = new Anonymizer();
 const anonymizerHandler = new AnonymizerHandler(MainExtensionEventBus, anonymizer);
@@ -19,9 +19,9 @@ const App: Component = () => {
   console.log("App component rendering");
 
   return (
-    <div>
+    <div style={{ width: "500px" }}>
       <header>
-        <Typography variant="h1"> Anonide</Typography>
+        <Header />
       </header>
       <DictionaryManager />
     </div>
