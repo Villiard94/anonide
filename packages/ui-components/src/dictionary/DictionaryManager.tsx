@@ -5,9 +5,12 @@ import DictionaryForm from "./DictionaryForm";
 import DictionaryHeader from "./DictionaryHeader";
 import DictionaryList from "./DictionaryList";
 
-const DictionaryManager: Component = () => {
+export interface DictionaryManagerProps {
+  searchTerm: string;
+}
+
+const DictionaryManager: Component<DictionaryManagerProps> = (props) => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
-  const [searchTerm, setSearchTerm] = createSignal("");
   const [showForm, setShowForm] = createSignal(false);
 
   onMount(async () => {
@@ -26,8 +29,8 @@ const DictionaryManager: Component = () => {
   const filteredItems = () =>
     items().filter(
       (item) =>
-        item.key.toLowerCase().includes(searchTerm().toLowerCase()) ||
-        item.token.toLowerCase().includes(searchTerm().toLowerCase()),
+        item.key.toLowerCase().includes(props.searchTerm.toLowerCase()) ||
+        item.token.toLowerCase().includes(props.searchTerm.toLowerCase()),
     );
 
   const handleAddItem = (newItem: DictionaryItem) => {
@@ -46,9 +49,9 @@ const DictionaryManager: Component = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <DictionaryHeader
-        searchTerm={searchTerm()}
+        searchTerm=""
         showForm={showForm()}
-        onSearchChange={setSearchTerm}
+        onSearchChange={() => {}}
         onToggleForm={() => setShowForm(!showForm())}
       />
 
