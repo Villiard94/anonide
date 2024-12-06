@@ -1,7 +1,5 @@
 import DictionaryForm from "./DictionaryForm";
-import DictionaryHeader from "./DictionaryHeader";
-import DictionaryItem from "./DictionaryItem";
 import DictionaryList from "./DictionaryList";
-import DictionaryManager from "./DictionaryManager";
+import DictionaryItem from "./DictionaryItem";
 
-export { DictionaryForm, DictionaryHeader, DictionaryItem, DictionaryList, DictionaryManager };
+export { DictionaryForm, DictionaryList, DictionaryItem };

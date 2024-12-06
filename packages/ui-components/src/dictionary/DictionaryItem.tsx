@@ -1,5 +1,5 @@
 import { Component, Show } from "solid-js";
-import { Card, CardContent, IconButton, Typography, Box, Chip, Stack } from "@suid/material";
+import { IconButton, Typography, Box, Chip, Stack, Divider } from "@suid/material";
 import DeleteIcon from "@suid/icons-material/Delete";
 import { DictionaryItem as DictionaryItemType } from "@anonide/anonymizer";
 
@@ -10,8 +10,8 @@ interface DictionaryItemProps {
 
 const DictionaryItem: Component<DictionaryItemProps> = (props) => {
   return (
-    <Card sx={{ mb: 2, position: "relative" }}>
-      <CardContent>
+    <Box>
+      <Box sx={{ py: 2 }}>
         <Box sx={{ pr: 6 }}>
           <Typography variant="subtitle2" color="text.secondary" gutterBottom>
             Search for:
@@ -48,8 +48,9 @@ const DictionaryItem: Component<DictionaryItemProps> = (props) => {
         >
           <DeleteIcon />
         </IconButton>
-      </CardContent>
-    </Card>
+      </Box>
+      <Divider />
+    </Box>
   );
 };
 

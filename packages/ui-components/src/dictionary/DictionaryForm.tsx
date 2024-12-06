@@ -1,112 +1,97 @@
-import { Component, createSignal } from "solid-js";
-import { Paper, TextField, FormControlLabel, Checkbox, Button, Grid, Box } from "@suid/material";
-import SaveIcon from "@suid/icons-material/Save";
+import { Component, createSignal, createEffect } from "solid-js";
+import { Paper, TextField, FormControlLabel, Checkbox, Grid, Box } from "@suid/material";
 import { DictionaryItem } from "@anonide/anonymizer";
 
 interface DictionaryFormProps {
-  onSubmit: (item: DictionaryItem) => void;
+  onChange: (item: DictionaryItem) => void;
 }
 
 const DictionaryForm: Component<DictionaryFormProps> = (props) => {
-  const [newItem, setNewItem] = createSignal<DictionaryItem>({
+  const [formData, setFormData] = createSignal<DictionaryItem>({
     key: "",
     token: "",
     isRegex: false,
     caseSensitive: false,
-    generateIndex: true, // true by default
+    generateIndex: true,
   });
 
-  const handleSubmit = (e: Event) => {
-    e.preventDefault();
-    if (newItem().key && newItem().token) {
-      props.onSubmit(newItem());
-      setNewItem({
-        key: "",
-        token: "",
-        isRegex: false,
-        caseSensitive: false,
-        generateIndex: true,
-      });
+  // Notify parent component whenever form values change
+  createEffect(() => {
+    const currentData = formData();
+    if (currentData.key || currentData.token) {
+      props.onChange(currentData);
     }
+  });
+
+  const handleChange = (field: keyof DictionaryItem, value: string | boolean) => {
+    setFormData((prev) => {
+      const updated = { ...prev, [field]: value };
+      return updated;
+    });
   };
 
   return (
-    <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
-      <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Search for"
-              value={newItem().key}
-              onChange={(e) => setNewItem({ ...newItem(), key: e.target.value })}
-              required
-              size="small"
-            />
-          </Grid>
-
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Replace with"
-              value={newItem().token}
-              onChange={(e) => setNewItem({ ...newItem(), token: e.target.value })}
-              required
-              size="small"
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={newItem().isRegex}
-                  onChange={(e) => setNewItem({ ...newItem(), isRegex: e.target.checked })}
-                />
-              }
-              label="Regular Expression"
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={newItem().caseSensitive}
-                  onChange={(e) => setNewItem({ ...newItem(), caseSensitive: e.target.checked })}
-                />
-              }
-              label="Case Sensitive"
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={6}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={newItem().generateIndex}
-                  onChange={(e) => setNewItem({ ...newItem(), generateIndex: e.target.checked })}
-                />
-              }
-              label="Generate Index"
-            />
-          </Grid>
-
-          <Grid item xs={12}>
-            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button
-                type="submit"
-                variant="contained"
-                startIcon={<SaveIcon />}
-                disabled={!newItem().key || !newItem().token}
-              >
-                Add Dictionary Item
-              </Button>
-            </Box>
-          </Grid>
+    <Box sx={{ py: 4 }}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Search for"
+            value={formData().key}
+            onChange={(e) => handleChange("key", e.target.value)}
+            required
+            size="small"
+          />
         </Grid>
-      </form>
-    </Paper>
+
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Replace with"
+            value={formData().token}
+            onChange={(e) => handleChange("token", e.target.value)}
+            required
+            size="small"
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={formData().isRegex}
+                onChange={(e) => handleChange("isRegex", e.target.checked)}
+              />
+            }
+            label="Regular Expression"
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={formData().caseSensitive}
+                onChange={(e) => handleChange("caseSensitive", e.target.checked)}
+              />
+            }
+            label="Case Sensitive"
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={formData().generateIndex}
+                onChange={(e) => handleChange("generateIndex", e.target.checked)}
+              />
+            }
+            label="Generate Index"
+          />
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

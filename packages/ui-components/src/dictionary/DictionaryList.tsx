@@ -10,7 +10,7 @@ interface DictionaryListProps {
 
 const DictionaryList: Component<DictionaryListProps> = (props) => {
   return (
-    <Box sx={{ mt: 2 }}>
+    <Box>
       <Show
         when={props.items.length > 0}
         fallback={
