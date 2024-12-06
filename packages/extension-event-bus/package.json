@@ -1,0 +1,14 @@
+{
+  "name": "@anonide/extension-event-bus",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}

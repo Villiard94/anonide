@@ -1,0 +1,17 @@
+{
+  "name": "@anonide/anonymizer-handler",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@anonide/anonymizer": "workspace:",
+    "@anonide/extension-event-bus": "workspace:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}

@@ -26,8 +26,18 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@anonide/ui-components": path.resolve(__dirname, "../../packages/ui-components/src"),
       "@anonide/anonymizer": path.resolve(__dirname, "../../packages/anonymizer/src"),
+      "@anonide/anonymizer-handler": path.resolve(
+        __dirname,
+        "../../packages/anonymizer-handler/src",
+      ),
+      "@anonide/extension-event-bus": path.resolve(
+        __dirname,
+        "../../packages/extension-event-bus/src",
+      ),
+      "@anonide/ui-components": path.resolve(__dirname, "../../packages/ui-components/src"),
+      "@anonide/browser-storage": path.resolve(__dirname, "../../packages/browser-storage/src"),
+      "@anonide/local-storage": path.resolve(__dirname, "../../packages/local-storage/src"),
     },
   },
 });

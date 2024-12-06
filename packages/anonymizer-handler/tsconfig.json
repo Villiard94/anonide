@@ -3,8 +3,8 @@
   "compilerOptions": {
     "declarationDir": "dist",
     "paths": {
-      "@anonide/browser-storage": ["../browser-storage/src"],
-      "@anonide/local-storage": ["../local-storage/src"]
+      "@anonide/anonymizer": ["../anonymizer/src"],
+      "@anonide/extension-event-bus": ["../extension-event-bus/src"]
     }
   },
   "include": ["src"]

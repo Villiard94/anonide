@@ -1,7 +1,7 @@
 import { Component, createSignal } from "solid-js";
 import { Paper, TextField, FormControlLabel, Checkbox, Button, Grid, Box } from "@suid/material";
 import SaveIcon from "@suid/icons-material/Save";
-import { DictionaryItem } from "./types";
+import { DictionaryItem } from "@anonide/anonymizer";
 
 interface DictionaryFormProps {
   onSubmit: (item: DictionaryItem) => void;
@@ -13,6 +13,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
     token: "",
     isRegex: false,
     caseSensitive: false,
+    generateIndex: true, // true by default
   });
 
   const handleSubmit = (e: Event) => {
@@ -24,6 +25,7 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
         token: "",
         isRegex: false,
         caseSensitive: false,
+        generateIndex: true,
       });
     }
   };
@@ -75,6 +77,18 @@ const DictionaryForm: Component<DictionaryFormProps> = (props) => {
                 />
               }
               label="Case Sensitive"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={newItem().generateIndex}
+                  onChange={(e) => setNewItem({ ...newItem(), generateIndex: e.target.checked })}
+                />
+              }
+              label="Generate Index"
             />
           </Grid>
 

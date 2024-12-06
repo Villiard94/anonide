@@ -1,11 +1,10 @@
 import { defineConfig } from "vite";
-import path from "path";
 
 export default defineConfig({
   build: {
     lib: {
       entry: "src/index.ts",
-      name: "anonimizer",
+      name: "local-storage",
       fileName: "index",
     },
     sourcemap: true,
@@ -14,12 +13,6 @@ export default defineConfig({
       output: {
         globals: {},
       },
-    },
-  },
-  resolve: {
-    alias: {
-      "@anonide/browser-storage": path.resolve(__dirname, "../browser-storage/src"),
-      "@anonide/local-storage": path.resolve(__dirname, "../local-storage/src"),
     },
   },
 });

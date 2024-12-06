@@ -18,6 +18,9 @@ catalogs:
     '@suid/vite-plugin':
       specifier: ^0.3.1
       version: 0.3.1
+    '@types/firefox-webext-browser':
+      specifier: ^120.0.4
+      version: 120.0.4
     nanoid:
       specifier: ^5.0.8
       version: 5.0.8
@@ -39,6 +42,9 @@ catalogs:
     vite-plugin-solid:
       specifier: ^2.10.2
       version: 2.10.2
+    webextension-polyfill:
+      specifier: ^0.12.0
+      version: 0.12.0
 
 importers:
 
@@ -136,6 +142,28 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 5.4.11(@types/node@18.19.64)(sass-embedded@1.81.0)
+
+  packages/browser-storage:
+    dependencies:
+      nanoid:
+        specifier: 'catalog:'
+        version: 5.0.8
+    devDependencies:
+      '@types/firefox-webext-browser':
+        specifier: 'catalog:'
+        version: 120.0.4
+      '@types/webextension-polyfill':
+        specifier: ^0.12.1
+        version: 0.12.1
+      typescript:
+        specifier: 'catalog:'
+        version: 5.6.3
+      vite:
+        specifier: 'catalog:'
+        version: 5.4.11(@types/node@18.19.64)(sass-embedded@1.81.0)
+      webextension-polyfill:
+        specifier: 'catalog:'
+        version: 0.12.0
 
   packages/ui-components:
     dependencies:
@@ -771,6 +799,9 @@ packages:
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
+  '@types/firefox-webext-browser@120.0.4':
+    resolution: {integrity: sha512-lBrpf08xhiZBigrtdQfUaqX1UauwZ+skbFiL8u2Tdra/rklkKadYmIzTwkNZSWtuZ7OKpFqbE2HHfDoFqvZf6w==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -779,6 +810,9 @@ packages:
 
   '@types/node@18.19.64':
     resolution: {integrity: sha512-955mDqvO2vFf/oL7V3WiUtiz+BugyX8uVbaT2H8oj3+8dRyH2FLiNdowe7eNqRM7IOIZvzDH76EoAT+gwm6aIQ==}
+
+  '@types/webextension-polyfill@0.12.1':
+    resolution: {integrity: sha512-xPTFWwQ8BxPevPF2IKsf4hpZNss4LxaOLZXypQH4E63BDLmcwX/RMGdI4tB4VO4Nb6xDBH3F/p4gz4wvof1o9w==}
 
   '@typescript-eslint/eslint-plugin@8.15.0':
     resolution: {integrity: sha512-+zkm9AR1Ds9uLWN3fkoeXgFppaQ+uEVtfOV62dDmsy9QCNqlRHWNEck4yarvRNrvRcHQLGfqBNui3cimoz8XAg==}
@@ -2397,6 +2431,9 @@ packages:
       vite:
         optional: true
 
+  webextension-polyfill@0.12.0:
+    resolution: {integrity: sha512-97TBmpoWJEE+3nFBQ4VocyCdLKfw54rFaJ6EVQYLBCXqCIpLSZkwGgASpv4oPt9gdKCJ80RJlcmNzNn008Ag6Q==}
+
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
@@ -3023,6 +3060,8 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
+  '@types/firefox-webext-browser@120.0.4': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
@@ -3031,6 +3070,8 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
     optional: true
+
+  '@types/webextension-polyfill@0.12.1': {}
 
   '@typescript-eslint/eslint-plugin@8.15.0(@typescript-eslint/parser@8.15.0(eslint@9.15.0)(typescript@5.6.3))(eslint@9.15.0)(typescript@5.6.3)':
     dependencies:
@@ -4788,6 +4829,8 @@ snapshots:
   vitefu@0.2.5(vite@5.4.11(@types/node@18.19.64)(sass-embedded@1.81.0)):
     optionalDependencies:
       vite: 5.4.11(@types/node@18.19.64)(sass-embedded@1.81.0)
+
+  webextension-polyfill@0.12.0: {}
 
   whatwg-encoding@3.1.1:
     dependencies:

@@ -1,12 +1,9 @@
-import { LocalStorageService, DictionaryItem } from "@anonide/anonymizer";
+import { DictionaryItem, getStoredDictionary, saveDictionary } from "@anonide/anonymizer";
 import { Component, Show, createEffect, createSignal, onMount } from "solid-js";
 import { Container, Typography } from "@suid/material";
 import DictionaryForm from "./DictionaryForm";
 import DictionaryHeader from "./DictionaryHeader";
 import DictionaryList from "./DictionaryList";
-
-const storage = new LocalStorageService("dictionary:");
-const STORAGE_KEY = "items";
 
 const DictionaryManager: Component = () => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
@@ -15,7 +12,7 @@ const DictionaryManager: Component = () => {
 
   onMount(async () => {
     console.log("on mount");
-    const savedItems = await storage.load<DictionaryItem[]>(STORAGE_KEY);
+    const savedItems = await getStoredDictionary();
     if (savedItems) {
       setItems(savedItems);
     }
@@ -23,7 +20,7 @@ const DictionaryManager: Component = () => {
 
   createEffect(() => {
     console.log("saving item");
-    storage.save(STORAGE_KEY, items());
+    saveDictionary(items());
   });
 
   const filteredItems = () =>

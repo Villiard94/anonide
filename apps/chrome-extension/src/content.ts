@@ -1,6 +1,4 @@
-import { Anonymizer, getStoredDictionary } from "@anonide/anonymizer";
-
-const anonymizer = new Anonymizer();
+import { Anonymizer } from "@anonide/anonymizer";
 
 function createAnonymizeButton(element: HTMLElement) {
   const button = document.createElement("button");
@@ -19,13 +17,10 @@ function createAnonymizeButton(element: HTMLElement) {
   `;
 
   button.addEventListener("click", async () => {
-    const dictionary = await getStoredDictionary();
-    if (!dictionary) return;
-
     const promptArea = document.querySelector("#prompt-textarea") as HTMLDivElement;
 
     const originalText = promptArea.innerHTML;
-    const anonymizedText = anonymizer.anonymize(originalText.replace("Contoso", "ORG_1"));
+    const anonymizedText = await new Anonymizer().anonymize(originalText);
     promptArea.innerHTML = anonymizedText;
   });
 

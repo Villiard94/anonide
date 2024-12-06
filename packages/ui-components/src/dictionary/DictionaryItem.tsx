@@ -1,7 +1,7 @@
 import { Component, Show } from "solid-js";
 import { Card, CardContent, IconButton, Typography, Box, Chip, Stack } from "@suid/material";
 import DeleteIcon from "@suid/icons-material/Delete";
-import { DictionaryItem as DictionaryItemType } from "./types";
+import { DictionaryItem as DictionaryItemType } from "@anonide/anonymizer";
 
 interface DictionaryItemProps {
   item: DictionaryItemType;
@@ -33,6 +33,9 @@ const DictionaryItem: Component<DictionaryItemProps> = (props) => {
             </Show>
             <Show when={props.item.caseSensitive}>
               <Chip label="Case Sensitive" size="small" color="primary" variant="outlined" />
+            </Show>
+            <Show when={props.item.generateIndex !== false}>
+              <Chip label="Generate Index" size="small" color="primary" variant="outlined" />
             </Show>
           </Stack>
         </Box>
