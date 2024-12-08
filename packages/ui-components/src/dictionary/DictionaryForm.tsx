@@ -1,5 +1,5 @@
 import { Component, createSignal, createEffect } from "solid-js";
-import { Paper, TextField, FormControlLabel, Checkbox, Grid, Box } from "@suid/material";
+import { TextField, FormControlLabel, Checkbox, Grid, Box } from "@suid/material";
 import { DictionaryItem } from "@anonide/anonymizer";
 
 interface DictionaryFormProps {
