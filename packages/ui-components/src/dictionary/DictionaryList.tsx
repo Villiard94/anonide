@@ -1,7 +1,7 @@
 import { Component, For, Show } from "solid-js";
 import { List, Typography, Box } from "@suid/material";
+import { DictionaryItem as DictionaryItemType } from "@anonide/models";
 import DictionaryItem from "./DictionaryItem";
-import { DictionaryItem as DictionaryItemType } from "./types";
 
 interface DictionaryListProps {
   items: DictionaryItemType[];

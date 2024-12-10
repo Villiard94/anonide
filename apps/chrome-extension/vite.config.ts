@@ -38,6 +38,7 @@ export default defineConfig({
       "@anonide/ui-components": path.resolve(__dirname, "../../packages/ui-components/src"),
       "@anonide/browser-storage": path.resolve(__dirname, "../../packages/browser-storage/src"),
       "@anonide/local-storage": path.resolve(__dirname, "../../packages/local-storage/src"),
+      "@anonide/models": path.resolve(__dirname, "../../packages/models/src"),
     },
   },
 });

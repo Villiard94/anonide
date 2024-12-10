@@ -10,6 +10,7 @@
     "lint": "eslint && stylelint **/*.{css,scss}",
     "lint:fix": "eslint --fix && stylelint **/*.{css,scss} --fix",
     "crx:dev": "pnpm --filter chrome-extension dev",
+    "crx:build": "pnpm --filter chrome-extension build",
     "prepare": "husky"
   },
   "keywords": [],

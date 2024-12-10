@@ -1,5 +1,5 @@
 import { StorageService, BrowserStorageService } from "@anonide/browser-storage";
-import { DictionaryItem } from "./types";
+import { DictionaryItem } from "@anonide/models";
 
 const storageService: StorageService = new BrowserStorageService();
 

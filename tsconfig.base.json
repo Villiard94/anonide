@@ -18,7 +18,15 @@
     "declaration": true,
     "declarationMap": true,
     "isolatedModules": true,
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "paths": {
+      "@anonide/anonymizer": ["./packages/anonymizer/src"],
+      "@anonide/anonymizer-handler": ["./packages/anonymizer-handler/src"],
+      "@anonide/extension-event-bus": ["./packages/extension-event-bus/src"],
+      "@anonide/ui-components": ["./packages/ui-components/src"],
+      "@anonide/browser-storage": ["./packages/browser-storage/src"],
+      "@anonide/models": ["./packages/models/src"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

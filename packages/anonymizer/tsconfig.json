@@ -2,10 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "declarationDir": "dist",
-    "paths": {
-      "@anonide/browser-storage": ["../browser-storage/src"],
-      "@anonide/local-storage": ["../local-storage/src"]
-    }
   },
   "include": ["src"]
 }

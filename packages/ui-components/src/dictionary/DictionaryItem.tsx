@@ -1,7 +1,7 @@
 import { Component, Show } from "solid-js";
 import { IconButton, Typography, Box, Chip, Stack, Divider } from "@suid/material";
 import DeleteIcon from "@suid/icons-material/Delete";
-import { DictionaryItem as DictionaryItemType } from "@anonide/anonymizer";
+import { DictionaryItem as DictionaryItemType } from "@anonide/models";
 
 interface DictionaryItemProps {
   item: DictionaryItemType;

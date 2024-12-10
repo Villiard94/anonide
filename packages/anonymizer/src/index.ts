@@ -1,4 +1,3 @@
-export * from "./types";
 export * from "./anonymizer";
 export * from "./dictionaryService";
 

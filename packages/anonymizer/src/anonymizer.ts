@@ -1,4 +1,4 @@
-import type { DictionaryItem } from "./types";
+import { DictionaryItem } from "@anonide/models";
 import { getStoredDictionary, getStoredDictionaryWithIndeces } from "./dictionaryService";
 
 export class Anonymizer {

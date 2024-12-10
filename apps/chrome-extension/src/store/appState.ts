@@ -1,26 +1,18 @@
+import { DictionaryItem } from "@anonide/models";
 import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
-import { DictionaryItem } from "@anonide/anonymizer";
-
-export type View = "list" | "add-item";
 
 interface AppState {
-  currentView: View;
   searchExpanded: boolean;
   pendingItem: DictionaryItem | null;
 }
 
 const [state, setState] = createStore<AppState>({
-  currentView: "list",
   searchExpanded: false,
   pendingItem: null,
 });
 
 export const getAppState = () => state;
-
-export const setView = (view: View) => {
-  setState("currentView", view);
-};
 
 export const setSearchExpanded = (expanded: boolean) => {
   setState("searchExpanded", expanded);
@@ -49,6 +41,5 @@ export const handleSave = () => {
   if (saveHandler && state.pendingItem) {
     saveHandler(state.pendingItem);
     setPendingItem(null);
-    setView("list");
   }
 };

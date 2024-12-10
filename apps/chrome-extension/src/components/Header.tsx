@@ -1,33 +1,22 @@
 import { AppBar, Toolbar, Typography, TextField, IconButton, Box } from "@suid/material";
 import SearchIcon from "@suid/icons-material/Search";
 import CloseIcon from "@suid/icons-material/Close";
+import FactCheckIcon from "@suid/icons-material/FactCheckOutlined";
 import AddIcon from "@suid/icons-material/Add";
-import SaveIcon from "@suid/icons-material/Save";
 import { Component, Show } from "solid-js";
-import {
-  getAppState,
-  setView,
-  setSearchExpanded,
-  getSearchTerm,
-  updateSearchTerm,
-  handleSave,
-} from "../store/appState";
+import { A, useLocation } from "@solidjs/router";
+import { getAppState, setSearchExpanded, getSearchTerm, updateSearchTerm } from "../store/appState";
 
 export const Header: Component = () => {
   const state = getAppState();
+  const location = useLocation();
 
   const handleClear = () => {
     updateSearchTerm("");
     setSearchExpanded(false);
   };
 
-  const handleAddClick = () => {
-    setView("add-item");
-  };
-
-  const handleCancelAdd = () => {
-    setView("list");
-  };
+  const showSearch = () => location.pathname === "/dictionary";
 
   return (
     <div>
@@ -41,24 +30,44 @@ export const Header: Component = () => {
               flexGrow: state.searchExpanded ? 0 : 1,
             }}
           >
-            Anonide
+            <A
+              href="/"
+              style={{
+                "text-decoration": "none",
+                color: "inherit",
+              }}
+            >
+              Anonide
+            </A>
           </Typography>
 
           <Show
-            when={state.currentView === "list"}
+            when={showSearch()}
             fallback={
               <Box sx={{ ml: "auto" }}>
-                <IconButton
-                  color="inherit"
-                  onClick={handleSave}
-                  disabled={!state.pendingItem?.key || !state.pendingItem?.token}
-                  sx={{ mr: 1 }}
+                <A
+                  href="/dictionary"
+                  style={{
+                    "text-decoration": "none",
+                    color: "inherit",
+                    "margin-right": "8px",
+                  }}
                 >
-                  <SaveIcon />
-                </IconButton>
-                <IconButton color="inherit" onClick={handleCancelAdd}>
-                  <CloseIcon />
-                </IconButton>
+                  <IconButton color="inherit">
+                    <FactCheckIcon />
+                  </IconButton>
+                </A>
+                <A
+                  href="/dictionary/add"
+                  style={{
+                    "text-decoration": "none",
+                    color: "inherit",
+                  }}
+                >
+                  <IconButton color="inherit">
+                    <AddIcon />
+                  </IconButton>
+                </A>
               </Box>
             }
           >
@@ -69,9 +78,17 @@ export const Header: Component = () => {
                   <IconButton color="inherit" onClick={() => setSearchExpanded(true)}>
                     <SearchIcon />
                   </IconButton>
-                  <IconButton color="inherit" onClick={handleAddClick} sx={{ ml: 1 }}>
-                    <AddIcon />
-                  </IconButton>
+                  <A
+                    href="/dictionary/add"
+                    style={{
+                      "text-decoration": "none",
+                      color: "inherit",
+                    }}
+                  >
+                    <IconButton color="inherit" sx={{ ml: 1 }}>
+                      <AddIcon />
+                    </IconButton>
+                  </A>
                 </Box>
               }
             >
