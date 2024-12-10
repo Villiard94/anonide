@@ -2,7 +2,7 @@ import { crx } from "@crxjs/vite-plugin";
 import devtools from "solid-devtools/vite";
 import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
-import path from "path";
+import { join, resolve } from "path";
 import manifest from "./manifest.json" assert { type: "json" };
 
 export default defineConfig({
@@ -15,7 +15,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        index: path.resolve(__dirname, "index.html"),
+        index: resolve(__dirname, "index.html"),
       },
       output: {
         entryFileNames: "assets/[name].js",
@@ -25,20 +25,11 @@ export default defineConfig({
     },
   },
   resolve: {
-    alias: {
-      "@anonide/anonymizer": path.resolve(__dirname, "../../packages/anonymizer/src"),
-      "@anonide/anonymizer-handler": path.resolve(
-        __dirname,
-        "../../packages/anonymizer-handler/src",
-      ),
-      "@anonide/extension-event-bus": path.resolve(
-        __dirname,
-        "../../packages/extension-event-bus/src",
-      ),
-      "@anonide/ui-components": path.resolve(__dirname, "../../packages/ui-components/src"),
-      "@anonide/browser-storage": path.resolve(__dirname, "../../packages/browser-storage/src"),
-      "@anonide/local-storage": path.resolve(__dirname, "../../packages/local-storage/src"),
-      "@anonide/models": path.resolve(__dirname, "../../packages/models/src"),
-    },
+    alias: [
+      {
+        find: /@anonide\/(.*)/,
+        replacement: join(resolve(__dirname, "../../packages"), "$1", "src"),
+      },
+    ],
   },
 });
