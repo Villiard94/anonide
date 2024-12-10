@@ -4,16 +4,20 @@ import { DictionaryItem } from "@anonide/models";
 
 interface DictionaryFormProps {
   onChange: (item: DictionaryItem) => void;
+  initialItem?: DictionaryItem;
 }
 
 const DictionaryForm: Component<DictionaryFormProps> = (props) => {
-  const [formData, setFormData] = createSignal<DictionaryItem>({
-    key: "",
-    token: "",
-    isRegex: false,
-    caseSensitive: false,
-    generateIndex: true,
-  });
+  const [formData, setFormData] = createSignal<DictionaryItem>(
+    props.initialItem ?? {
+      id: "",
+      key: "",
+      token: "",
+      isRegex: false,
+      caseSensitive: false,
+      generateIndex: true,
+    },
+  );
 
   // Notify parent component whenever form values change
   createEffect(() => {

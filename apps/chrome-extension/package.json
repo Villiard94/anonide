@@ -11,11 +11,12 @@
   },
   "dependencies": {
     "@anonide/anonymizer": "workspace:*",
-    "@anonide/ui-components": "workspace:*",
     "@anonide/models": "workspace:*",
+    "@anonide/ui-components": "workspace:*",
     "@solidjs/router": "catalog:",
     "@suid/icons-material": "catalog:",
     "@suid/material": "catalog:",
+    "nanoid": "catalog:",
     "solid-js": "catalog:"
   },
   "devDependencies": {

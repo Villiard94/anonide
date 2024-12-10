@@ -1,12 +1,13 @@
 import { getStoredDictionary, saveDictionary } from "@anonide/anonymizer";
 import { Component, createSignal, onMount } from "solid-js";
-import { Container } from "@suid/material";
 import { DictionaryList } from "@anonide/ui-components";
 import { DictionaryItem } from "@anonide/models";
+import { useNavigate } from "@solidjs/router";
 import { getSearchTerm } from "../store/appState";
 
 const Dictionary: Component = () => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
+  const navigator = useNavigate();
 
   onMount(async () => {
     const savedItems = await getStoredDictionary();
@@ -22,9 +23,13 @@ const Dictionary: Component = () => {
         item.token.toLowerCase().includes(getSearchTerm().toLowerCase()),
     );
 
-  const handleDeleteItem = (index: number) => {
+  const handleDeleteItem = (id: string) => {
     const currentItems = items();
-    const itemToDelete = filteredItems()[index];
+    const itemToDelete = currentItems.find((i) => i.id === id);
+    if (!itemToDelete) {
+      console.error("Cannot find item to delete", id);
+      return;
+    }
     const newItems = currentItems.filter(
       (item) => item.key !== itemToDelete.key || item.token !== itemToDelete.token,
     );
@@ -32,10 +37,16 @@ const Dictionary: Component = () => {
     saveDictionary(newItems);
   };
 
+  const handleEditItem = (id: string) => {
+    navigator(`/dictionary/${id}`);
+  };
+
   return (
-    <Container maxWidth="md">
-      <DictionaryList items={filteredItems()} onDeleteItem={handleDeleteItem} />
-    </Container>
+    <DictionaryList
+      items={filteredItems()}
+      onDeleteItem={handleDeleteItem}
+      onEditItem={handleEditItem}
+    />
   );
 };
 

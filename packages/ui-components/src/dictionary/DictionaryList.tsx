@@ -1,11 +1,12 @@
 import { Component, For, Show } from "solid-js";
-import { List, Typography, Box } from "@suid/material";
+import { List, Typography, Box, Divider } from "@suid/material";
 import { DictionaryItem as DictionaryItemType } from "@anonide/models";
 import DictionaryItem from "./DictionaryItem";
 
 interface DictionaryListProps {
   items: DictionaryItemType[];
-  onDeleteItem: (index: number) => void;
+  onDeleteItem: (itemId: string) => void;
+  onEditItem: (itemId: string) => void;
 }
 
 const DictionaryList: Component<DictionaryListProps> = (props) => {
@@ -22,7 +23,16 @@ const DictionaryList: Component<DictionaryListProps> = (props) => {
         <List sx={{ p: 0 }}>
           <For each={props.items}>
             {(item, index) => (
-              <DictionaryItem item={item} onDelete={() => props.onDeleteItem(index())} />
+              <Box>
+                <Show when={index() !== 0}>
+                  <Divider />
+                </Show>
+                <DictionaryItem
+                  item={item}
+                  onDelete={() => props.onDeleteItem(item.id)}
+                  onEdit={() => props.onEditItem(item.id)}
+                />
+              </Box>
             )}
           </For>
         </List>

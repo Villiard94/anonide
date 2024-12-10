@@ -104,6 +104,9 @@ importers:
       '@anonide/anonymizer':
         specifier: workspace:*
         version: link:../../packages/anonymizer
+      '@anonide/models':
+        specifier: workspace:*
+        version: link:../../packages/models
       '@anonide/ui-components':
         specifier: workspace:*
         version: link:../../packages/ui-components
@@ -116,6 +119,9 @@ importers:
       '@suid/material':
         specifier: 'catalog:'
         version: 0.18.0(solid-js@1.9.3)
+      nanoid:
+        specifier: 'catalog:'
+        version: 5.0.8
       solid-js:
         specifier: 'catalog:'
         version: 1.9.3

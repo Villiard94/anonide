@@ -4,6 +4,7 @@ import { Container, Button, Box } from "@suid/material";
 import { DictionaryForm } from "@anonide/ui-components";
 import { useNavigate } from "@solidjs/router";
 import { DictionaryItem } from "@anonide/models";
+import { nanoid } from "nanoid";
 import { setPendingItem } from "../store/appState";
 
 const AddDictionary: Component = () => {
@@ -18,6 +19,10 @@ const AddDictionary: Component = () => {
   const handleSave = async () => {
     const item = currentItem();
     if (!item || !item.key || !item.token) return;
+
+    if (!item.id) {
+      item.id = nanoid();
+    }
 
     const currentItems = (await getStoredDictionary()) || [];
     const updatedItems = [...currentItems, item];

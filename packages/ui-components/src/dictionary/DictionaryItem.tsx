@@ -1,55 +1,60 @@
 import { Component, Show } from "solid-js";
-import { IconButton, Typography, Box, Chip, Stack, Divider } from "@suid/material";
-import DeleteIcon from "@suid/icons-material/Delete";
+import { IconButton, Typography, Box, Chip, Stack } from "@suid/material";
+import DeleteIcon from "@suid/icons-material/DeleteForeverOutlined";
+import EditIcon from "@suid/icons-material/EditOutlined";
 import { DictionaryItem as DictionaryItemType } from "@anonide/models";
 
 interface DictionaryItemProps {
   item: DictionaryItemType;
+  onEdit: () => void;
   onDelete: () => void;
 }
 
 const DictionaryItem: Component<DictionaryItemProps> = (props) => {
   return (
-    <Box>
-      <Box sx={{ py: 2 }}>
-        <Box sx={{ pr: 6 }}>
-          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+    <Box sx={{ p: 2, position: "relative" }}>
+      <Box sx={{ pr: 6 }}>
+        <Stack direction="row" alignContent="center">
+          <Typography variant="body1" color="text.secondary" gutterBottom sx={{ mr: 1 }}>
             Search for:
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1 }}>
-            {props.item.key}
-          </Typography>
-
-          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+          <Typography variant="body1">{props.item.key}</Typography>
+        </Stack>
+        <Stack direction="row" alignContent="center">
+          <Typography variant="body1" color="text.secondary" gutterBottom sx={{ mr: 1 }}>
             Replace with:
           </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            {props.item.token}
-          </Typography>
+          <Typography variant="body1">{props.item.token}</Typography>
+        </Stack>
 
-          <Stack direction="row" spacing={1}>
-            <Show when={props.item.isRegex}>
-              <Chip label="Regex" size="small" color="primary" variant="outlined" />
-            </Show>
-            <Show when={props.item.caseSensitive}>
-              <Chip label="Case Sensitive" size="small" color="primary" variant="outlined" />
-            </Show>
-            <Show when={props.item.generateIndex !== false}>
-              <Chip label="Generate Index" size="small" color="primary" variant="outlined" />
-            </Show>
-          </Stack>
-        </Box>
-
-        <IconButton
-          onClick={() => props.onDelete()}
-          sx={{ position: "absolute", top: 8, right: 8 }}
-          color="error"
-          size="small"
-        >
-          <DeleteIcon />
-        </IconButton>
+        <Stack direction="row" spacing={1}>
+          <Show when={props.item.isRegex}>
+            <Chip label="Regex" size="small" color="success" variant="outlined" />
+          </Show>
+          <Show when={props.item.caseSensitive}>
+            <Chip label="Case Sensitive" size="small" color="success" variant="outlined" />
+          </Show>
+          <Show when={props.item.generateIndex !== false}>
+            <Chip label="Indexed" size="small" color="info" variant="outlined" />
+          </Show>
+        </Stack>
       </Box>
-      <Divider />
+
+      <IconButton
+        onClick={() => props.onEdit()}
+        sx={{ position: "absolute", top: 8, right: 44 }}
+        size="small"
+      >
+        <EditIcon />
+      </IconButton>
+
+      <IconButton
+        onClick={() => props.onDelete()}
+        sx={{ position: "absolute", top: 8, right: 8 }}
+        size="small"
+      >
+        <DeleteIcon />
+      </IconButton>
     </Box>
   );
 };
