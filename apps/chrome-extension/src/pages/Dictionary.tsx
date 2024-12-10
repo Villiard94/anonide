@@ -1,12 +1,89 @@
 import { getStoredDictionary, saveDictionary } from "@anonide/anonymizer";
-import { Component, createSignal, onMount } from "solid-js";
+import { Component, createSignal, onMount, Show, onCleanup } from "solid-js";
 import { DictionaryList } from "@anonide/ui-components";
 import { DictionaryItem } from "@anonide/models";
-import { useNavigate } from "@solidjs/router";
-import { getSearchTerm } from "../store/appState";
+import { A, useNavigate } from "@solidjs/router";
+import { Box, IconButton, TextField } from "@suid/material";
+import SearchIcon from "@suid/icons-material/Search";
+import CloseIcon from "@suid/icons-material/Close";
+import AddIcon from "@suid/icons-material/Add";
+import { removeToolbarItems, setToolbarItems } from "../store/toolbar-store";
+
+interface SearchToolbarItemProps {
+  updateSearchTerm: (searchTerm: string) => void;
+}
+
+const SearchToolbarItem: Component<SearchToolbarItemProps> = (props) => {
+  const [searchExpanded, setSearchExpanded] = createSignal(false);
+  const [searchTerm, setSearchTerm] = createSignal("");
+
+  const updateSearchTerm = (term: string) => {
+    setSearchTerm(term);
+    props.updateSearchTerm(term);
+  };
+
+  const handleClear = () => {
+    updateSearchTerm("");
+    setSearchExpanded(false);
+  };
+
+  return (
+    <Show
+      when={searchExpanded()}
+      fallback={
+        <Box sx={{ ml: "auto" }}>
+          <IconButton color="inherit" onClick={() => setSearchExpanded(true)}>
+            <SearchIcon />
+          </IconButton>
+        </Box>
+      }
+    >
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexGrow: 1,
+          maxWidth: "400px",
+          ml: "auto",
+        }}
+      >
+        <TextField
+          size="small"
+          fullWidth
+          placeholder="Search dictionary..."
+          value={searchTerm()}
+          autoFocus={true}
+          onChange={(e) => updateSearchTerm(e.target.value)}
+          sx={{
+            "& .MuiInputBase-root": {
+              color: "white",
+              "& fieldset": {
+                borderColor: "rgba(255, 255, 255, 0.23)",
+              },
+              "&:hover fieldset": {
+                borderColor: "rgba(255, 255, 255, 0.87)",
+              },
+              "&.Mui-focused fieldset": {
+                borderColor: "white",
+              },
+            },
+            "& .MuiInputBase-input::placeholder": {
+              color: "rgba(255, 255, 255, 0.7)",
+              opacity: 1,
+            },
+          }}
+        />
+        <IconButton color="inherit" onClick={handleClear} sx={{ ml: 1 }}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+    </Show>
+  );
+};
 
 const Dictionary: Component = () => {
   const [items, setItems] = createSignal<DictionaryItem[]>([]);
+  const [searchTerm, setSearchTerm] = createSignal<string>("");
   const navigator = useNavigate();
 
   onMount(async () => {
@@ -16,11 +93,40 @@ const Dictionary: Component = () => {
     }
   });
 
+  const toolbarIds = setToolbarItems([
+    {
+      id: "search-dictionary",
+      order: 0,
+      component: <SearchToolbarItem updateSearchTerm={(term) => setSearchTerm(term)} />,
+    },
+    {
+      id: "add-dictionary-item",
+      order: 1,
+      component: (
+        <A
+          href="/dictionary/add"
+          style={{
+            "text-decoration": "none",
+            color: "inherit",
+          }}
+        >
+          <IconButton color="inherit" sx={{ ml: 1 }}>
+            <AddIcon />
+          </IconButton>
+        </A>
+      ),
+    },
+  ]);
+
+  onCleanup(() => {
+    removeToolbarItems(toolbarIds);
+  });
+
   const filteredItems = () =>
     items().filter(
       (item) =>
-        item.key.toLowerCase().includes(getSearchTerm().toLowerCase()) ||
-        item.token.toLowerCase().includes(getSearchTerm().toLowerCase()),
+        item.key.toLowerCase().includes(searchTerm().toLowerCase()) ||
+        item.token.toLowerCase().includes(searchTerm().toLowerCase()),
     );
 
   const handleDeleteItem = (id: string) => {
