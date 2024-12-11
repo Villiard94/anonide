@@ -8,12 +8,17 @@ export type Theme = {
   darkMode: boolean;
 };
 
+let loaded = false;
 const [theme, setTheme] = createSignal<Theme>({ darkMode: false });
 
 export const loadTheme = async () => {
+  if (loaded) {
+    return;
+  }
   const savedTheme = await storage.load<Theme>(THEME_KEY);
   if (savedTheme) {
     setTheme(savedTheme);
+    loaded = true;
   }
 };
 

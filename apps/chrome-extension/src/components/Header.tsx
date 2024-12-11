@@ -10,6 +10,7 @@ export const Header: Component = () => {
         <Toolbar>
           <Typography
             component="div"
+            color="primary"
             sx={{
               mr: 2,
               flexGrow: 1,
@@ -19,6 +20,7 @@ export const Header: Component = () => {
               href="/"
               style={{
                 "text-decoration": "none",
+                "font-weight": "500",
                 color: "inherit",
               }}
             >

@@ -1,5 +1,5 @@
 {
-  "name": "@anonide/browser-storage",
+  "name": "@anonide/local-storage",
   "version": "1.0.0",
   "main": "src/index.ts",
   "type": "module",

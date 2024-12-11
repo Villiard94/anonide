@@ -18,6 +18,7 @@
     "@solidjs/router": "catalog:",
     "@suid/icons-material": "catalog:",
     "@suid/material": "catalog:",
+    "lodash": "catalog:",
     "nanoid": "catalog:",
     "solid-js": "catalog:",
     "zod": "catalog:"
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@crxjs/vite-plugin": "catalog:",
     "@suid/vite-plugin": "catalog:",
+    "@types/lodash": "catalog:",
     "solid-devtools": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",

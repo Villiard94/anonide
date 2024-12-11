@@ -54,24 +54,6 @@ const SearchToolbarItem: Component<SearchToolbarItemProps> = (props) => {
           value={searchTerm()}
           autoFocus={true}
           onChange={(e) => updateSearchTerm(e.target.value)}
-          sx={{
-            "& .MuiInputBase-root": {
-              color: "white",
-              "& fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.23)",
-              },
-              "&:hover fieldset": {
-                borderColor: "rgba(255, 255, 255, 0.87)",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
-            "& .MuiInputBase-input::placeholder": {
-              color: "rgba(255, 255, 255, 0.7)",
-              opacity: 1,
-            },
-          }}
         />
         <IconButton color="inherit" onClick={handleClear} sx={{ ml: 1 }}>
           <CloseIcon />
