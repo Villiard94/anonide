@@ -52,7 +52,6 @@ const DictionaryItemForm: Component<DictionaryItemFormProps> = (props) => {
                 <FormTextField
                   field={field}
                   fieldProps={fieldProps}
-                  variant="outlined"
                   fullWidth
                   label="Search for"
                   size="small"
@@ -67,7 +66,6 @@ const DictionaryItemForm: Component<DictionaryItemFormProps> = (props) => {
                 <FormTextField
                   field={field}
                   fieldProps={fieldProps}
-                  variant="outlined"
                   fullWidth
                   label="Replace with"
                   size="small"

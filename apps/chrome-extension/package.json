@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@anonide/anonymizer": "workspace:*",
+    "@anonide/local-storage": "workspace:*",
     "@anonide/models": "workspace:*",
     "@anonide/ui-components": "workspace:*",
     "@modular-forms/solid": "catalog:",
