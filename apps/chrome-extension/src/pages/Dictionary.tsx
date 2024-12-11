@@ -1,10 +1,9 @@
 import { getStoredDictionary, saveDictionary } from "@anonide/anonymizer";
-import { Component, createSignal, onMount, Show, onCleanup } from "solid-js";
+import { Component, createSignal, onMount, onCleanup } from "solid-js";
 import { DictionaryList } from "@anonide/ui-components";
 import { DictionaryItem } from "@anonide/models";
 import { A, useNavigate } from "@solidjs/router";
 import { Box, IconButton, TextField } from "@suid/material";
-import SearchIcon from "@suid/icons-material/Search";
 import CloseIcon from "@suid/icons-material/Close";
 import AddIcon from "@suid/icons-material/Add";
 import { removeToolbarItems, setToolbarItems } from "../store/toolbar-store";
@@ -14,7 +13,6 @@ interface SearchToolbarItemProps {
 }
 
 const SearchToolbarItem: Component<SearchToolbarItemProps> = (props) => {
-  const [searchExpanded, setSearchExpanded] = createSignal(false);
   const [searchTerm, setSearchTerm] = createSignal("");
 
   const updateSearchTerm = (term: string) => {
@@ -24,42 +22,34 @@ const SearchToolbarItem: Component<SearchToolbarItemProps> = (props) => {
 
   const handleClear = () => {
     updateSearchTerm("");
-    setSearchExpanded(false);
   };
 
   return (
-    <Show
-      when={searchExpanded()}
-      fallback={
-        <Box sx={{ ml: "auto" }}>
-          <IconButton color="inherit" onClick={() => setSearchExpanded(true)}>
-            <SearchIcon />
-          </IconButton>
-        </Box>
-      }
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        flexGrow: 1,
+        maxWidth: "400px",
+        ml: "auto",
+      }}
     >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          flexGrow: 1,
-          maxWidth: "400px",
-          ml: "auto",
+      <TextField
+        size="small"
+        fullWidth
+        placeholder="Search dictionary..."
+        value={searchTerm()}
+        autoFocus={true}
+        onChange={(e) => updateSearchTerm(e.target.value)}
+        InputProps={{
+          endAdornment: (
+            <IconButton color="inherit" onClick={handleClear} sx={{ ml: 1 }}>
+              <CloseIcon />
+            </IconButton>
+          ),
         }}
-      >
-        <TextField
-          size="small"
-          fullWidth
-          placeholder="Search dictionary..."
-          value={searchTerm()}
-          autoFocus={true}
-          onChange={(e) => updateSearchTerm(e.target.value)}
-        />
-        <IconButton color="inherit" onClick={handleClear} sx={{ ml: 1 }}>
-          <CloseIcon />
-        </IconButton>
-      </Box>
-    </Show>
+      />
+    </Box>
   );
 };
 

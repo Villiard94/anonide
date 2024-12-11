@@ -5,8 +5,34 @@ body {
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 599px;
+  width: 500px;
+}
+
+#root {
+    height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Applies to modern browsers */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+::-webkit-scrollbar-track {
+    background: #4443; /* Background of the scrollbar track */
+    border-radius: 10px; /* Optional for rounded edges */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6669; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Optional for rounded edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4449; /* Color of the scrollbar thumb on hover */
 }

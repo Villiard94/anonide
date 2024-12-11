@@ -4,7 +4,7 @@ import { MemoryRouter, Route } from "@solidjs/router";
 import { AnonymizerHandler } from "@anonide/anonymizer-handler";
 import { MainExtensionEventBus } from "@anonide/extension-event-bus";
 import { Anonymizer } from "@anonide/anonymizer";
-import { createTheme, ThemeProvider } from "@suid/material";
+import { Box, createTheme, ThemeProvider } from "@suid/material";
 import CssBaseline from "@suid/material/CssBaseline";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -17,15 +17,15 @@ const anonymizerHandler = new AnonymizerHandler(MainExtensionEventBus, anonymize
 
 const Layout: Component<ParentProps> = (props) => {
   return (
-    <div>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <header>
         <Header />
       </header>
-      {props.children}
+      <Box sx={{ overflowY: "auto", flex: 1 }}>{props.children}</Box>
       <footer>
         <Footer />
       </footer>
-    </div>
+    </Box>
   );
 };
 
