@@ -6,7 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 599px;
-  width: 500px;
+  width: 400px;
+  zoom: 0.9;
 }
 
 #root {

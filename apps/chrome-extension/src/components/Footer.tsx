@@ -8,7 +8,7 @@ export const Footer: Component = () => {
   const location = useLocation();
 
   return (
-    <Box sx={{ width: 500 }}>
+    <Box sx={{ width: 1 }}>
       <Divider />
       <BottomNavigation
         showLabels
