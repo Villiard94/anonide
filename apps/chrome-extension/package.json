@@ -13,11 +13,13 @@
     "@anonide/anonymizer": "workspace:*",
     "@anonide/models": "workspace:*",
     "@anonide/ui-components": "workspace:*",
+    "@modular-forms/solid": "catalog:",
     "@solidjs/router": "catalog:",
     "@suid/icons-material": "catalog:",
     "@suid/material": "catalog:",
     "nanoid": "catalog:",
-    "solid-js": "catalog:"
+    "solid-js": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "catalog:",

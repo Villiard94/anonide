@@ -20,12 +20,13 @@
     "isolatedModules": true,
     "types": ["vite/client"],
     "paths": {
-      "@anonide/anonymizer": ["./packages/anonymizer/src"],
       "@anonide/anonymizer-handler": ["./packages/anonymizer-handler/src"],
-      "@anonide/extension-event-bus": ["./packages/extension-event-bus/src"],
-      "@anonide/ui-components": ["./packages/ui-components/src"],
+      "@anonide/anonymizer": ["./packages/anonymizer/src"],
       "@anonide/browser-storage": ["./packages/browser-storage/src"],
-      "@anonide/models": ["./packages/models/src"]
+      "@anonide/extension-event-bus": ["./packages/extension-event-bus/src"],
+      "@anonide/forms": ["./packages/forms/src"],
+      "@anonide/models": ["./packages/models/src"],
+      "@anonide/ui-components": ["./packages/ui-components/src"]
     }
   },
   "exclude": ["node_modules", "dist"]

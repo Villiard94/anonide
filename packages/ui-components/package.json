@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "@anonide/anonymizer": "workspace:*",
+    "@modular-forms/solid": "catalog:",
     "@suid/icons-material": "catalog:",
     "@suid/material": "catalog:",
-    "solid-js": "catalog:"
+    "solid-js": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "catalog:",
