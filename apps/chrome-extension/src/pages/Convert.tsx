@@ -1,14 +1,23 @@
 import type { Component } from "solid-js";
-import { createSignal } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 import { Box, Button, TextField, Stack } from "@suid/material";
 import LockIcon from "@suid/icons-material/Lock";
 import LockOpenIcon from "@suid/icons-material/LockOpen";
 import { Anonymizer } from "@anonide/anonymizer";
+import { clearToolbarTitle, setToolbarTitle } from "../store/toolbar-store";
 
 const anonymizer = new Anonymizer();
 
 const Convert: Component = () => {
   const [text, setText] = createSignal("");
+
+  onMount(() => {
+    setToolbarTitle("Convert");
+  });
+
+  onCleanup(() => {
+    clearToolbarTitle();
+  });
 
   const handleAnonymize = async () => {
     // Placeholder for anonymize functionality

@@ -8,10 +8,12 @@ export interface ToolbarItem {
 }
 
 interface ToolbarState {
+  title: string;
   items: ToolbarItem[];
 }
 
 const [state, setState] = createStore<ToolbarState>({
+  title: "",
   items: [],
 });
 
@@ -51,4 +53,12 @@ export const removeToolbarItems = (itemIds: string[]) => {
 
 export const clearToolbarItems = () => {
   setState("items", []);
+};
+
+export const setToolbarTitle = (title: string) => {
+  setState("title", title);
+};
+
+export const clearToolbarTitle = () => {
+  setState("title", "");
 };

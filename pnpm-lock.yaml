@@ -27,6 +27,9 @@ catalogs:
     '@types/firefox-webext-browser':
       specifier: ^120.0.4
       version: 120.0.4
+    '@types/lodash':
+      specifier: ^4.17.13
+      version: 4.17.13
     '@types/webextension-polyfill':
       specifier: ^0.12.1
       version: 0.12.1
@@ -154,7 +157,7 @@ importers:
         specifier: 'catalog:'
         version: 0.3.1(vite@6.0.3(@types/node@18.19.64)(sass-embedded@1.81.0))
       '@types/lodash':
-        specifier: ^4.17.13
+        specifier: 'catalog:'
         version: 4.17.13
       solid-devtools:
         specifier: 'catalog:'

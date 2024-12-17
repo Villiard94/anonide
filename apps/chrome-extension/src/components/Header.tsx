@@ -14,7 +14,6 @@ export const Header: Component = () => {
             color="primary"
             sx={{
               mr: 2,
-              flexGrow: 1,
             }}
           >
             <A
@@ -28,6 +27,15 @@ export const Header: Component = () => {
             >
               <ThemedLogo size={36} />
             </A>
+          </Typography>
+          <Typography
+            component="div"
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            {getToolbarState().title}
           </Typography>
           <For each={getToolbarState().items}>{(item) => item.component}</For>
         </Toolbar>
